@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-import picamera
 import smbus
 import math
 import astral
@@ -435,14 +434,6 @@ class Platform:
 				os.system('mkdir {}/Pics - {}/{}'.format(self.pic_path,self.cwd,item[0]) 
 			except AlreadyExists:
 				continue
-				
-	#camera stuff
-	def take_picture(self,body):
-		self.camera.start_preview()
-		tn = str(datetime.datetime.utcnow())
-		timestamp = tn[11:19]
-		time.sleep(.5)
-		camera.capture('{}/Pics - {}/{}/{}.jpg'.format(self.pic_path,self.cwd,body,timestamp))
 		
 	#starstuff and environment
 	def get_altaz_of(self,simbad_ref):
